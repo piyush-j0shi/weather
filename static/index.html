@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Service</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Weather Service</h1>
+        
+        <form id="weatherForm">
+            <div class="form-group">
+                <label for="userName">Your Name</label>
+                <input type="text" id="userName" name="userName" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Check weather conditions?</label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="yes" name="checkWeather" value="yes" required>
+                        <label for="yes">Yes</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="no" name="checkWeather" value="no" required>
+                        <label for="no">No</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group city-input" id="cityInput">
+                <label for="currentCity">Current city</label>
+                <input type="text" id="currentCity" name="currentCity">
+            </div>
+            
+            <button type="submit" id="submitBtn">Submit</button>
+        </form>
+        
+        <div class="progress-container" id="progressContainer">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">Processing your request</div>
+        </div>
+        
+        <div class="response" id="response">
+            <h3>Response</h3>
+            <p id="responseText"></p>
+        </div>
+    </div>
+
+    <div id="dataModal" class="modal">
+        <div class="modal-content">
+            <h2>Data Usage Notice</h2>
+            <p>Your responses will be used to improve our service. All data is anonymized and handled securely.</p>
+            <div class="modal-buttons">
+                <button class="btn-accept" onclick="acceptDataUsage()">Agree</button>
+                <button class="btn-decline" onclick="declineDataUsage()">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
