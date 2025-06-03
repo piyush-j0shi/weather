@@ -48,6 +48,25 @@ function declineDataUsage() {
     alert('To continue, please agree to the data usage terms.');
 }
 
+function clearResponseAfterDelay() {
+    setTimeout(() => {
+        // Clear response
+        document.getElementById('responseText').textContent = '';
+        document.getElementById('response').style.display = 'none';
+        
+        // Clear form fields
+        document.getElementById('userName').value = '';
+        document.getElementById('currentCity').value = '';
+        
+        // Reset radio buttons
+        document.getElementById('no').checked = true;
+        document.getElementById('yes').checked = false;
+        
+        // Hide city input
+        document.getElementById('cityInput').style.display = 'none';
+    }, 5000); // 5000 milliseconds = 5 seconds
+}
+
 async function submitWeatherForm() {
     const userName = document.getElementById('userName').value;
     const checkWeather = document.querySelector('input[name="checkWeather"]:checked').value;
@@ -87,6 +106,9 @@ async function submitWeatherForm() {
         document.getElementById('responseText').textContent = result.message;
         response.style.display = 'block';
         
+        // Clear response and form fields after 5 seconds
+        clearResponseAfterDelay();
+        
         // Hide progress
         progressContainer.style.display = 'none';
         
@@ -95,6 +117,9 @@ async function submitWeatherForm() {
         document.getElementById('responseText').textContent = 'An error occurred. Please try again.';
         response.style.display = 'block';
         progressContainer.style.display = 'none';
+        
+        // Clear error message and form fields after 5 seconds too
+        clearResponseAfterDelay();
     }
     
     // Re-enable form

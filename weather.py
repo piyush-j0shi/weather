@@ -1,6 +1,7 @@
 from tqdm import tqdm
 import time
 
+
 def weather():
     check_weather = input("do you want to check weather now : yes / no : ")
 
@@ -11,15 +12,17 @@ def weather():
 
         for i in tqdm(range(int(100))):
             time.sleep(0.1)
-        
+
         print("look out of your fucking window you fucking Dumbass.")
 
     elif check_weather.lower().strip() == "no":
         print("why the fuck are you here then, you fucking piece of shit.")
 
     else:
-        print("are you fucking retarted you fucking pig, can't you see yes or no, are you fucking blind.")
+        print(
+            "are you fucking retarted you fucking pig, can't you see yes or no, are you fucking blind."
+        )
+
 
 if __name__ == "__main__":
     weather()
-
